@@ -18,6 +18,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp',  'uploads')));
 app.use(require("./routes"));
-var server = app.listen(process.env.PORT || 3001);
-// var port = server.address().port;
-// console.log("Express is working on port " + port);
+app.listen(process.env.PORT || 3001);
