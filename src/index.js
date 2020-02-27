@@ -8,20 +8,12 @@ const mongoose = require('mongoose');
 const path = require("path");
 
 const app = express();
-// // connect to db
-// const client = new MongoClient(process.env.MONGO_URL, { useUnifiedTopology: true });
-// client.connect();
-const handleError = (error) => {
-    console.log(error);
-}
-mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URL , 
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }
 );
-mongoose.connection.on('error', err => debug(`MongoDB connection error: ${err}`));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
