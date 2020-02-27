@@ -22,8 +22,8 @@ mongoose.connect(process.env.MONGO_URL ,
     }
 ).
 catch(error => handleError(error));
-const db = mongoose.connection;
-console.log(db);
+// const db = mongoose.connection;
+// console.log(db);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
