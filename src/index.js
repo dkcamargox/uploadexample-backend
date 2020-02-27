@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 const app = express();
-mongoose.connect("mongodb+srv://dkcamargox:camargo1508@cluster0-zmptz.gcp.mongodb.net/test?retryWrites=true&w=majority" , 
+mongoose.connect(process.env.MONGO_URL , 
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
