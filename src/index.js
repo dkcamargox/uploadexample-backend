@@ -11,12 +11,15 @@ const app = express();
 // // connect to db
 // const client = new MongoClient(process.env.MONGO_URL, { useUnifiedTopology: true });
 // client.connect();
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URL , 
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
 );
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
