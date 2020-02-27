@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URL ,
     }
 );
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error: "));
+console.log(db);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
