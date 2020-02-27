@@ -3,10 +3,14 @@ require('dotenv').config();
 const cors = require("cors");
 const express = require("express");
 const morgan = require("morgan");
-const mongoose = require("mongoose");
+const {MongoClient} = require('mongodb');
+const mongoose = require('mongoose');
 const path = require("path");
 
 const app = express();
+// // connect to db
+// const client = new MongoClient(process.env.MONGO_URL, { useUnifiedTopology: true });
+// client.connect();
 mongoose.connect(process.env.MONGO_URL , 
     {
         useNewUrlParser: true,
